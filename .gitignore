@@ -1,0 +1,17 @@
+# Principal ignores taken from https://github.com/material-components/material-components-flutter-codelabs/blob/101-starter/mdc_100_series/.gitignore
+
+.DS_Store
+.dart_tool/
+
+.packages
+.pub/
+
+build/
+
+.flutter-plugins
+
+.idea
+.atom
+.vscode
+
+*.iml
