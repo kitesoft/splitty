@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'home.dart';
 
@@ -6,6 +7,7 @@ class Splitty extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return new MaterialApp(
       title: 'Splitty',
       theme: new ThemeData(
