@@ -1,27 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import 'home.dart';
+import 'splash.dart';
+import 'login.dart';
 
-class Splitty extends StatelessWidget {
+class Splitty extends StatefulWidget {
   // This widget is the root of your application.
+
+  @override
+  _SplittyState createState() => _SplittyState();
+}
+
+class _SplittyState extends State<Splitty> {
+  FirebaseUser _user;
+
+  void _setUser(FirebaseUser user) {
+    setState(() {
+      _user = user;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return new MaterialApp(
       title: 'Splitty',
       theme: new ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
-        // counter didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.green,
       ),
-      home: new HomePage(),
+      home: SplashPage(_setUser),
+      routes: <String, WidgetBuilder>{
+        '/expenses': (BuildContext context) => HomePage()
+      },
     );
   }
 }
