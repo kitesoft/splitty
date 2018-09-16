@@ -28,15 +28,13 @@ class SplashPage extends StatelessWidget {
           Center(
             child: RaisedButton(
                 child: Text('Sign in with Google'),
-                onPressed: () {
-                  _handleSignIn()
-                      .then((FirebaseUser user) => setUser(user))
-                      .catchError((e) => print(e));
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
-                      ModalRoute.withName('/expenses'));
-                }),
+                onPressed: () => _handleSignIn().then((FirebaseUser user) {
+                      setUser(user);
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage(user: user)),
+                          ModalRoute.withName('/expenses'));
+                    }).catchError((e) => print(e))),
           )
         ],
       ),
