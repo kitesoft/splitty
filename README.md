@@ -1,7 +1,7 @@
 # Splitty
 > Split and manage expenses with friends
 
-<img src="images/SPLITTY-HOME-IPHONE-XS-MAX.PNG" width="300">
+<img src="https://github.com/OpenOfficina/splitty/blob/master/images/SPLITTY-HOME-IPHONE-XS-MAX.png" width="300">
 
 Splitty is a group expense manager to help you keep track of the flow of money you owe to a friend or vice versa.
 
